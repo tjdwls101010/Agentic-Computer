@@ -1,0 +1,37 @@
+Bundled skill docs for AI agents (list, get, path)
+
+Usage: agent-desktop skills [OPTIONS] [COMMAND]
+
+Commands:
+  list  List bundled skills with summaries (default)
+  get   Print a skill (markdown in data.content)
+  path  Print where bundled skills live
+  help  Print this message or the help of the given subcommand(s)
+
+Options:
+  -v, --verbose                        Enable debug logging to stderr
+      --debug                          Visual debug for snapshot/click; requires --screenshot PATH.html
+      --screenshot <PATH.html>         Write a sensitive, local HTML screenshot visualization (new file only)
+      --session <SESSION>              Select the snapshot namespace; session-owned refs require the same scope
+      --agent-id <AGENT_ID>            Harness subagent ID within --session (1-64 letters/digits/-/_; or AGENT_DESKTOP_AGENT_ID)
+      --trace <TRACE>                  Append reliability trace JSONL to this path
+      --trace-strict                   Fail on trace setup/pre-action write errors
+      --headed                         Prefer physical delivery for natural input commands and permit focus/cursor side effects. Default is strict headless semantic delivery.
+  -w, --wait-for <WAIT_FOR>            Poll until an element matching the role:text selector appears, then return the snapshot (snapshot and ref actions only)
+      --wait-for-gone <WAIT_FOR_GONE>  Poll until no element matches the role:text selector, then return the snapshot (snapshot and ref actions only)
+      --wait-timeout <WAIT_TIMEOUT>    Maximum wait time in milliseconds for --wait-for / --wait-for-gone (default: 30000)
+  -h, --help                           Print help
+
+Skills are compiled into the binary, so they always match this exact
+agent-desktop version. Each command prints the JSON envelope; the skill's
+markdown is in data.content.
+
+Start here:
+  agent-desktop skills get desktop            # Core guide, any OS
+  agent-desktop skills get platform           # Guide for the OS you run on
+
+More:
+  agent-desktop skills                        # List skills
+  agent-desktop skills get desktop workflows  # One reference
+  agent-desktop skills get windows            # A named platform guide
+  agent-desktop skills path                   # Where skills live
