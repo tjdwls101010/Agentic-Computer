@@ -1,0 +1,11 @@
+.trash/
+.claude/histories
+.claude/settings.local.json
+.claude/skills/computer/data/
+.codex-runs/
+.claude-runs/
+__pycache__/
+.venv/
+.pytest_cache/
+.DS_Store
+.tmp/
