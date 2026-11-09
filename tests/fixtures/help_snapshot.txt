@@ -1,0 +1,28 @@
+Capture accessibility tree as structured JSON with @ref IDs
+
+Usage: agent-desktop snapshot [OPTIONS]
+
+Options:
+      --app <APP>                      Filter to application by name
+  -v, --verbose                        Enable debug logging to stderr
+      --debug                          Visual debug for snapshot/click; requires --screenshot PATH.html
+      --window-id <window-id>          Scope to a single window ID (from list-windows)
+      --max-depth <MAX_DEPTH>          Maximum tree depth (default 10) [default: 10]
+      --screenshot <PATH.html>         Write a sensitive, local HTML screenshot visualization (new file only)
+      --include-bounds                 Include element bounds (x, y, width, height)
+      --session <SESSION>              Select the snapshot namespace; session-owned refs require the same scope
+      --agent-id <AGENT_ID>            Harness subagent ID within --session (1-64 letters/digits/-/_; or AGENT_DESKTOP_AGENT_ID)
+  -i, --interactive-only               Include interactive elements only
+      --compact                        Collapse single-child unnamed nodes to reduce tree depth
+      --trace <TRACE>                  Append reliability trace JSONL to this path
+      --skeleton                       Shallow overview with children_count on truncated containers
+      --trace-strict                   Fail on trace setup/pre-action write errors
+      --headed                         Prefer physical delivery for natural input commands and permit focus/cursor side effects. Default is strict headless semantic delivery.
+      --surface <SURFACE>              Surface to snapshot [default: window] [possible values: window, focused, menu, menubar, sheet, popover, alert, desktop, taskbar, system-tray, quick-settings, notification-center, toolbar, dock, spotlight, menu-bar-extras, system-tray-overflow, start-menu, action-center]
+      --root <ROOT>                    Start traversal from this ref instead of window root
+  -w, --wait-for <WAIT_FOR>            Poll until an element matching the role:text selector appears, then return the snapshot (snapshot and ref actions only)
+      --timeout-ms <MS>                Observation deadline in milliseconds (default 3000; raise for slow Chromium settles)
+      --wait-for-gone <WAIT_FOR_GONE>  Poll until no element matches the role:text selector, then return the snapshot (snapshot and ref actions only)
+      --force-electron-a11y            Assume Chromium renderer accessibility is forced (skips activation guidance)
+      --wait-timeout <WAIT_TIMEOUT>    Maximum wait time in milliseconds for --wait-for / --wait-for-gone (default: 30000)
+  -h, --help                           Print help

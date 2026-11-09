@@ -1,0 +1,21 @@
+[project]
+name = "agentic-computer"
+version = "0.1.0"
+description = "computer 스킬의 시험과 평가 환경. 스킬 실행에는 쓰이지 않는다(스킬은 cli.py의 PEP 723 머리를 쓴다)."
+requires-python = ">=3.12"
+dependencies = []
+
+[dependency-groups]
+test = ["pytest"]
+
+[tool.uv]
+package = false
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = [".claude/skills/computer/scripts", "."]
+addopts = "-m 'not slow and not real'"
+markers = [
+    "slow: 진짜 GitHub 릴리스를 내려받는 시험",
+    "real: 이 맥의 손쉬운 사용 권한과 TextEdit이 필요한 시험",
+]
